@@ -1,1 +1,28 @@
-dsfsdfasdf
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Test Page</title>
+</head>
+<body>
+  <h1>Hello! This page is tracking basic info (for curiosity only)</h1>
+
+  <script>
+    // Send data to a free logging service (example below) or your own endpoint
+    const data = {
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      language: navigator.language,
+      screen: screen.width + "x" + screen.height,
+      timestamp: new Date().toISOString(),
+      referrer: document.referrer
+    };
+
+    // Example: Send to a free webhook (replace with your own logging URL)
+    fetch('https://webhook.site/YOUR-UNIQUE-ID', {  // Get a free temporary URL from webhook.site
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(() => console.log('Info sent'));
+  </script>
+</body>
+</html>
